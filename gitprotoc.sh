@@ -18,6 +18,7 @@ abs_out_dir="$(pwd)/$OUT"
 (mkdir -p $repo_dir || true) 2>/dev/null
 (mkdir -p $abs_out_dir || true) 2>/dev/null
 
+rm -rf $repo_dir
 (git clone $REPO $repo_dir || true) 2>/dev/null
 
 cd $in_dir
@@ -42,3 +43,5 @@ done
 
 pattern="$pattern $find_result"
 echo $pattern | bash
+
+rm -rf $repo_dir
