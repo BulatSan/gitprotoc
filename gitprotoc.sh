@@ -41,7 +41,5 @@ for file in $find_result; do
     pattern="$pattern --go-grpc_opt=M$file_without_dot=$out_dir_module/$dir_without_dot"
 done
 
-pattern="$pattern $find_result"
+pattern="$pattern $find_result && rm -rf $repo_dir"
 echo $pattern | bash
-
-rm -rf $repo_dir
